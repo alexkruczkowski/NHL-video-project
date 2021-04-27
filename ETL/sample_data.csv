@@ -1,0 +1,5 @@
+date,game_id,game_status,game_content,game_links,home_team,home_score,away_team,away_score,video_recap
+2021-04-25,2020020757,Final,/api/v1/game/2020020757/content,/api/v1/game/2020020757/feed/live,Pittsburgh Penguins,1,Boston Bruins,0,nhl.com/news/boston-bruins-pittsburgh-penguins-game-recap/c-323406842?game_pk=2020020757
+2021-04-25,2020020216,Final,/api/v1/game/2020020216/content,/api/v1/game/2020020216/feed/live,Philadelphia Flyers,4,New Jersey Devils,3,nhl.com/news/new-jersey-devils-philadelphia-flyers-game-recap/c-323406964?game_pk=2020020216
+2021-04-25,2020020754,Final,/api/v1/game/2020020754/content,/api/v1/game/2020020754/feed/live,New York Rangers,6,Buffalo Sabres,3,nhl.com/news/buffalo-sabres-new-york-rangers-game-recap/c-323407070?game_pk=2020020754
+2021-04-25,2020020756,Final,/api/v1/game/2020020756/content,/api/v1/game/2020020756/feed/live,Tampa Bay Lightning,4,Columbus Blue Jackets,3,nhl.com/news/columbus-blue-jackets-tampa-bay-lightning-game-recap/c-323406860?game_pk=2020020756
