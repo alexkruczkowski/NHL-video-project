@@ -11,7 +11,7 @@ df_final = df[['home_team','home_score','away_team','away_score','video_recap']]
 df_html_table = df_final.to_html(index = False)
 
 # email HTML and formatting, adds the df into the email as an unformatted html table
-structure = """\
+BODY_HTML = """\
 <!doctype html>
 <html> 
   <head>
@@ -369,7 +369,7 @@ structure = """\
                         """ + df_html_table + """
 
                         <p> </p>
-                        <p>Hope you enjoy today's recap! Give us a shout if you have any questions.</p>
+                        <p>Hope you enjoy last night's recap! Give us a shout if you have any questions.</p>
                       </td>
                     </tr>
                   </table>
@@ -385,7 +385,7 @@ structure = """\
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">Video Recaps, 3 Abbey Road, Toronto, ON, Canada</span>
+                    <span class="apple-link">Video Recaps, 12 York Street, Toronto, ON, Canada</span>
                     <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
                   </td>
                 </tr>
