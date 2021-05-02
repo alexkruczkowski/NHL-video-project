@@ -78,12 +78,19 @@ def run_nhl_etl():
         print("Data valid, proceed to Load stage")
 
     # Load
+    # set S3 parameters and then load into bucket using awswrangler
+    bucket = "testing-boto3-upload"
+    folder = "data"
+    file_name = "NHL_game_data.csv"
+    # boto3.setup_default_session(region_name="us-east-2")
+
     try:
-        recap_df.to_csv("sample_data.csv", index=False)
+        path1 = f"s3://{bucket}/{folder}/{file_name}"
+        recap_df.to_csv(path1, index=False)
+        print("Df exported successfully")
     except Exception as e:
         print(f"{e} \nData not exported, please check errors")
 
-    print("Df exported successfully")
         
 run_nhl_etl()
 
