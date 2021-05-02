@@ -1,7 +1,12 @@
 import pandas as pd
 
 # import df from csv and prep for sending via email
-df = pd.read_csv("../ETL/sampledata.csv")
+bucket = "testing-boto3-upload"
+folder = "data"
+file_name = "NHL_game_data.csv"
+path1 = f"s3://{bucket}/{folder}/{file_name}"
+
+df = pd.read_csv(path1)
 df_final = df[['home_team','home_score','away_team','away_score','video_recap']]
 df_html_table = df_final.to_html(index = False)
 
