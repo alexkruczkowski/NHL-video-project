@@ -41,17 +41,20 @@ BODY_HTML = """\
         padding: 0;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%; 
+        text-align: left;
+        color: black;
       }
 
       table {
-        border-collapse: separate;
+        border-collapse: collapse;
         mso-table-lspace: 0pt;
         mso-table-rspace: 0pt;
         width: 100%; }
         table td {
           font-family: sans-serif;
           font-size: 14px;
-          vertical-align: top; 
+          vertical-align: middle; 
+          text-align: center;
       }
 
       /* -------------------------------------
