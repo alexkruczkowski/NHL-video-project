@@ -1,12 +1,15 @@
 import pandas as pd
+import boto3
 
 # import df from csv and prep for sending via email
 bucket = "testing-boto3-upload"
-folder = "data"
-file_name = "NHL_game_data.csv"
-path1 = f"s3://{bucket}/{folder}/{file_name}"
+file_name = "data/NHL_game_data.csv"
 
-df = pd.read_csv(path1)
+# get a handle on s3
+client = boto3.client('s3')
+obj = client.get_object(Bucket=f'{bucket}',Key=f'{file_name}')
+
+df = pd.read_csv(obj['Body'])
 df_final = df[['home_team','home_score','away_team','away_score','video_recap']]
 df_html_table = df_final.to_html(index = False)
 

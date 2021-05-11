@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 COPY / .
 
 # Run the application
-CMD ["python", "ETL/nhl_etl.py"]
+CMD ["python", "nhl_etl.py"]
