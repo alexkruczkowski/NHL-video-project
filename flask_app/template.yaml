@@ -1,0 +1,83 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  emails-api
+
+  Sample SAM Template for emails-api
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  EmailsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: emails
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  emailsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: emails/
+      Handler: app.app
+      Runtime: python3.7
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName:
+              !Ref EmailsTable
+      Events:
+        Test:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+        Listemails:
+          Type: Api
+          Properties:
+            Path: /emails
+            Method: get
+        Putemails:
+          Type: Api
+          Properties:
+            Path: /emails
+            Method: post
+        Getemails:
+          Type: Api
+          Properties:
+            Path: /emails/{id}/
+            Method: get
+        Patchemails:
+          Type: Api
+          Properties:
+            Path: /emails/{id}/
+            Method: patch
+        Deleteemails:
+          Type: Api
+          Properties:
+            Path: /emails/{id}/
+            Method: delete
+
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  emailsApi:
+    Description: "API Gateway endpoint URL for Prod stage for emails function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  emailsFunction:
+    Description: "emails Lambda Function ARN"
+    Value: !GetAtt emailsFunction.Arn
+  emailsFunctionIamRole:
+    Description: "Implicit IAM Role created for emails function"
+    Value: !GetAtt emailsFunctionRole.Arn
