@@ -26,6 +26,7 @@ Initially the project will be split into three parts, with the potential additio
 * Part 4: Launch front end subscription and unsubscription pages for potential users 
 
 ## The architecture
+![Alt text](images/aws-services-overview.png?raw=true "Title")
 
 ### ETL
 Retrieve last night's NHL games and video recaps via the [NHL API](https://statsapi.web.nhl.com/api/v1/configurations). 
@@ -56,6 +57,8 @@ Create the infrastructure as code using a SAM YAML template. API gateway for the
 Next step: add the ability to subscribe / unsubscribe via a front end page. 
 
 ## Project demo
+![Alt text](images/automated-recap-newsletter.png?raw=true "Title")
+A sample output of the recap newsletter towards the end of the regular season :smile:
 
 ## Built with
 * [Docker](https://www.docker.com/)
@@ -66,6 +69,7 @@ Next step: add the ability to subscribe / unsubscribe via a front end page.
 * [AWS API Gateway](https://aws.amazon.com/api-gateway/)
 * [AWS Lambda](https://aws.amazon.com/lambda/)
 * [AWS DynamoDB](https://aws.amazon.com/dynamodb/)
+* [AWS SES](https://aws.amazon.com/ses/)
 
 ## Next steps
 With the ETL, API, and email process built and automated the next step is to build and deploy the front-end. You may notice that the process has already begun in the subscription page directory. The next step is to test post and delete requests to the API through the form in the HTML page. Once complete, the subscription page will be deployed using AWS services. 
